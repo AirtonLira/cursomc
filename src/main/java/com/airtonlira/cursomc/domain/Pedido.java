@@ -50,6 +50,11 @@ public class Pedido implements Serializable {
 	@OneToMany(mappedBy = "id.pedido")
 	private Set<ItemPedido> itens = new HashSet<>();
 	
+	
+	@OneToOne
+	@JoinColumn(name="desconto_id")
+	private Desconto descontos; 
+	
 	public Pedido() {
 		
 	}
@@ -133,6 +138,14 @@ public class Pedido implements Serializable {
 
 	public void setItens(Set<ItemPedido> itens) {
 		this.itens = itens;
+	}
+
+	public Desconto getDescontos() {
+		return descontos;
+	}
+
+	public void setDescontos(Desconto descontos) {
+		this.descontos = descontos;
 	}
 	
 	
